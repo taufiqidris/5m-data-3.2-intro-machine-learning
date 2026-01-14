@@ -66,46 +66,46 @@ The R-squared value of 0.5758 shows that about 57.6% of the variance in house pr
    cancer = load_breast_cancer()
 
    from sklearn.datasets import load_breast_cancer
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score, classification_report
+   from sklearn.model_selection import train_test_split
+   from sklearn.preprocessing import StandardScaler
+   from sklearn.linear_model import LogisticRegression
+   from sklearn.neighbors import KNeighborsClassifier
+   from sklearn.metrics import accuracy_score, classification_report
 
-# Load dataset
-cancer = load_breast_cancer()
-X = cancer.data
-y = cancer.target
+   # Load dataset
+   cancer = load_breast_cancer()
+   X = cancer.data
+   y = cancer.target
 
-# Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
+   # Train-test split
+   X_train, X_test, y_train, y_test = train_test_split(
+      X, y, test_size=0.2, random_state=42
+   )
 
-# Standardize features (important for KNN)
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
+   # Standardize features (important for KNN)
+   scaler = StandardScaler()
+   X_train_scaled = scaler.fit_transform(X_train)
+   X_test_scaled = scaler.transform(X_test)
 
-# Logistic Regression
-log_reg = LogisticRegression(max_iter=1000)
-log_reg.fit(X_train_scaled, y_train)
-y_pred_lr = log_reg.predict(X_test_scaled)
+   # Logistic Regression
+   log_reg = LogisticRegression(max_iter=1000)
+   log_reg.fit(X_train_scaled, y_train)
+   y_pred_lr = log_reg.predict(X_test_scaled)
 
-# KNN
-knn = KNeighborsClassifier(n_neighbors=5)
-knn.fit(X_train_scaled, y_train)
-y_pred_knn = knn.predict(X_test_scaled)
+   # KNN
+   knn = KNeighborsClassifier(n_neighbors=5)
+   knn.fit(X_train_scaled, y_train)
+   y_pred_knn = knn.predict(X_test_scaled)
 
-# Evaluation
-print("Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_lr))
-print("KNN Accuracy:", accuracy_score(y_test, y_pred_knn))
+   # Evaluation
+   print("Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_lr))
+   print("KNN Accuracy:", accuracy_score(y_test, y_pred_knn))
 
-print("\nLogistic Regression Classification Report:")
-print(classification_report(y_test, y_pred_lr))
+   print("\nLogistic Regression Classification Report:")
+   print(classification_report(y_test, y_pred_lr))
 
-print("KNN Classification Report:")
-print(classification_report(y_test, y_pred_knn))
+   print("KNN Classification Report:")
+   print(classification_report(y_test, y_pred_knn))
 
    ```
 ### Classification Results Comparison
