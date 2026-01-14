@@ -15,37 +15,37 @@ Complete the following exercises using Python.
    housing = fetch_california_housing()
 
    import numpy as np
-from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
+   from sklearn.datasets import fetch_california_housing
+   from sklearn.model_selection import train_test_split
+   from sklearn.linear_model import LinearRegression
+   from sklearn.metrics import mean_squared_error, r2_score
 
-# Load dataset
-housing = fetch_california_housing()
-X = housing.data
-y = housing.target
+   # Load dataset
+   housing = fetch_california_housing()
+   X = housing.data
+   y = housing.target
 
-# Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
+   # Train-test split
+   X_train, X_test, y_train, y_test = train_test_split(
+      X, y, test_size=0.2, random_state=42
+   )
 
-# Train Linear Regression model
-lr = LinearRegression()
-lr.fit(X_train, y_train)
+   # Train Linear Regression model
+   lr = LinearRegression()
+   lr.fit(X_train, y_train)
 
-# Predictions
-y_pred = lr.predict(X_test)
+   # Predictions
+   y_pred = lr.predict(X_test)
 
-# Evaluation metrics
-mse = mean_squared_error(y_test, y_pred)
-rmse = np.sqrt(mse)
-r2 = r2_score(y_test, y_pred)
+   # Evaluation metrics
+   mse = mean_squared_error(y_test, y_pred)
+   rmse = np.sqrt(mse)
+   r2 = r2_score(y_test, y_pred)
 
-print("Linear Regression Performance (Test Set)")
-print(f"MSE:  {mse:.4f}")
-print(f"RMSE: {rmse:.4f}")
-print(f"R^2:  {r2:.4f}")
+   print("Linear Regression Performance (Test Set)")
+   print(f"MSE:  {mse:.4f}")
+   print(f"RMSE: {rmse:.4f}")
+   print(f"R^2:  {r2:.4f}")
    ```
 
 ### Linear Regression Results
